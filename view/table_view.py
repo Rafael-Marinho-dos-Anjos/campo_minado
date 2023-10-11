@@ -37,10 +37,10 @@ def draw_table(table: Table, field_scale = float):
 
     dimensions = (int(table.dimensions[0] * field_scale * 100), int(table.dimensions[1] * field_scale * 100))
 
-    img = np.zeros((dimensions[0], dimensions[1], 3), dtype=np.uint8)
+    img = np.zeros((dimensions[1], dimensions[0], 3), dtype=np.uint8)
 
-    for y in range(table.dimensions[0]):
-        for x in range(table.dimensions[1]):
+    for y in range(table.dimensions[1]):
+        for x in range(table.dimensions[0]):
             status = table.table[x][y].status
             field = table.table[x][y]
             if status == FieldStatus.UNCHECKED:
